@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: aiTrics_vital
+  profiles:
+    active: local
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:scheme.sql
+
+logging:
+  config: classpath:logback-spring.xml
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: always
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui   # /swagger-ui/index.html 대신 /swagger-ui 로 접근
+  api-docs:
+    path: /v3/api-docs  # 기본값이지만 명시 가능

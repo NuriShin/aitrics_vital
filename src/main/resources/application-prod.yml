@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    url: jdbc:h2:file:./data/prod-db
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ${DB_PASSWORD:prod-secure-password}
+  h2:
+    console:
+      enabled: false
+  jpa:
+    show-sql: false
+
+app:
+  security:
+    bearer-token: ${BEARER_TOKEN:prod-secure-token-456}
+
+logging:
+  level:
+    com.aitrics.vital: INFO
+    root: WARN
