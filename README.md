@@ -155,7 +155,9 @@ com.aitrics.vital
 * Response 예시
 {
 "risk_score": 0.9,
-"risk_level": "HIGH"
+"risk_level": "HIGH",
+"checked_rules": ["HR > 120", "SBP < 90", "SpO2 < 90"],
+"evaluated_at": "2025-12-01T10:20:00Z"
 }
 * 설명: request에 따른 평가 규칙에 따라 risk_score를 반환한다. 평가규칙 및 risk_score은 아래와 같다. 
 * 평가 규칙

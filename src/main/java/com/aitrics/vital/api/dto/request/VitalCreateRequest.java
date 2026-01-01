@@ -18,7 +18,8 @@ public record VitalCreateRequest(
     @JsonProperty("vital_type")
     @NotNull
     VitalType vitalType,
-    
+
+    @JsonProperty("vital_value")
     @NotNull
     Double value
 ) {}

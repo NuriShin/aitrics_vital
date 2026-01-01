@@ -28,9 +28,9 @@ public class Vital {
     @NotNull
     private VitalType vitalType;
     
-    @Column(name = "value", nullable = false)
+    @Column(name = "vital_value", nullable = false)
     @NotNull
-    private Double value;
+    private Double vitalValue;
     
     @Version
     @Column(name = "version", nullable = false)
@@ -44,17 +44,17 @@ public class Vital {
     
     protected Vital() {}
     
-    public Vital(String patientId, LocalDateTime recordedAt, VitalType vitalType, Double value) {
+    public Vital(String patientId, LocalDateTime recordedAt, VitalType vitalType, Double vitalValue) {
         this.patientId = patientId;
         this.recordedAt = recordedAt;
         this.vitalType = vitalType;
-        this.value = value;
+        this.vitalValue = vitalValue;
         this.createdAt = LocalDateTime.now();
         this.updatedAt = LocalDateTime.now();
     }
     
-    public void updateValue(Double value) {
-        this.value = value;
+    public void updateValue(Double vitalValue) {
+        this.vitalValue = vitalValue;
         this.updatedAt = LocalDateTime.now();
     }
     
@@ -77,7 +77,7 @@ public class Vital {
     public String getPatientId() { return patientId; }
     public LocalDateTime getRecordedAt() { return recordedAt; }
     public VitalType getVitalType() { return vitalType; }
-    public Double getValue() { return value; }
+    public Double getValue() { return vitalValue; }
     public Long getVersion() { return version; }
     public LocalDateTime getCreatedAt() { return createdAt; }
     public LocalDateTime getUpdatedAt() { return updatedAt; }

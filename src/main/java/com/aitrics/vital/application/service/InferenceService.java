@@ -6,6 +6,10 @@ import com.aitrics.vital.domain.enumtype.VitalType;
 import com.aitrics.vital.domain.exception.NotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -25,31 +29,39 @@ public class InferenceService {
         
         int totalRiskConditions = 0;
         int recordCount = request.records().size();
-        
+
+        LocalDate evaluatedAt = LocalDate.now();
+        List<String> checkedRules = new ArrayList<>();
+
         for (InferenceRequest.VitalRecord record : request.records()) {
-            totalRiskConditions += calculateRiskConditionsForRecord(record.vitals());
+            totalRiskConditions += calculateRiskConditionsForRecord(record.vitals(), checkedRules);
+            evaluatedAt = LocalDate.from(record.recordedAt());
         }
         
         double riskScore = calculateRiskScore(totalRiskConditions, recordCount);
-        return InferenceResponse.of(riskScore);
+
+        return InferenceResponse.of(evaluatedAt, riskScore, checkedRules);
     }
     
-    private int calculateRiskConditionsForRecord(Map<VitalType, Double> vitals) {
+    private int calculateRiskConditionsForRecord(Map<VitalType, Double> vitals, List<String> checkedRules) {
         int riskConditions = 0;
         
         Double hr = vitals.get(VitalType.HR);
         if (hr != null && hr > 120) {
             riskConditions++;
+            checkedRules.add("HR > 120");
         }
         
         Double sbp = vitals.get(VitalType.SBP);
         if (sbp != null && sbp < 90) {
             riskConditions++;
+            checkedRules.add("SBP < 90");
         }
         
         Double spo2 = vitals.get(VitalType.SpO2);
         if (spo2 != null && spo2 < 90) {
             riskConditions++;
+            checkedRules.add("SpO2 < 90");
         }
         
         return riskConditions;

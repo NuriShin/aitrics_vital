@@ -36,11 +36,11 @@ public class VitalController {
     }
     
     @GetMapping("/patients/{patient_id}/vitals")
-    @Operation(summary = "Vital 데이터 조회")
+    @Operation(summary = "Vital 데이터 조회(날짜 입력예시 : yyyy-mm-dd hh:mm:ss) ")
     public ResponseEntity<VitalQueryResponse> getVitals(
             @PathVariable("patient_id") String patientId,
-            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime from,
-            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime to,
+            @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime from,
+            @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime to,
             @RequestParam(required = false) VitalType vital_type) {
         VitalQueryResponse response = vitalService.getVitals(patientId, from, to, vital_type);
         return ResponseEntity.ok(response);
