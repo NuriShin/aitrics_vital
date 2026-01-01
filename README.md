@@ -188,6 +188,10 @@ Authorization: Bearer <token>
 * logback-spring.xml에 프로파일별 appenders
 
 #### 실행 및 스웨거 경로
-* swagger-ui : http://localhost:8080/swagger-ui/ 
+* swagger-ui : http://localhost:8080/swagger-ui/index.html 
 * 인증 토큰은 각 설정파일에 기재되어 있습니다. 로컬에서 실행 시 local-test-token를 입력합니다. 
-* 실행은 dockerfile을 
+* dockerfile 사용시 
+  * 프로젝트 루트 폴더로 접근
+  * docker build -t aitrics-vital -f Dockerfile . 실행
+  * docker run -d -p 8080:8080 --name aitrics-vital aitrics-vital 실행
+  * 스웨거 ui로 접근하여 실행 확인 

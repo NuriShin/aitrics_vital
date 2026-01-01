@@ -67,8 +67,7 @@ public class BearerTokenFilter extends OncePerRequestFilter {
     private boolean isPublicPath(String path) {
         return path.startsWith("/h2-console") || 
                path.startsWith("/swagger") || 
-               path.startsWith("/v3/api-docs") ||
-               path.startsWith("/actuator/health");
+               path.startsWith("/v3/api-docs");
     }
     
     private void sendUnauthorizedResponse(HttpServletResponse response, String path, String message) 
