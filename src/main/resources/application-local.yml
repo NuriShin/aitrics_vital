@@ -20,5 +20,5 @@ app:
 
 logging:
   level:
-    com.aitrics.vital: DEBUG
+    com.vital: DEBUG
     org.springframework.security: DEBUG

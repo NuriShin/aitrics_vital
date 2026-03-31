@@ -1,6 +1,6 @@
 spring:
   application:
-    name: aiTrics_vital
+    name: vital
   profiles:
     active: local
   jpa:

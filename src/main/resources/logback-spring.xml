@@ -25,7 +25,7 @@
             <appender-ref ref="FILE"/>
         </root>
         
-        <logger name="com.aitrics.vital" level="DEBUG"/>
+        <logger name="com.vital" level="DEBUG"/>
     </springProfile>
 
     <springProfile name="staging">
@@ -101,6 +101,6 @@
             <appender-ref ref="ERROR_FILE"/>
         </root>
         
-        <logger name="com.aitrics.vital" level="INFO"/>
+        <logger name="com.vital" level="INFO"/>
     </springProfile>
 </configuration>

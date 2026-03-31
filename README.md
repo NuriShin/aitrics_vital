@@ -11,7 +11,7 @@
 
 #### 패키지 레이아웃 
 * layered 구조
-com.aitrics.vital
+com.vital
 ├─ VitalApplication.java
 ├─ api
 │  ├─ controller
@@ -194,6 +194,6 @@ Authorization: Bearer <token>
 * 인증 토큰은 각 설정파일에 기재되어 있습니다. 로컬에서 실행 시 local-test-token를 입력합니다. 
 * dockerfile 사용시 
   * 프로젝트 루트 폴더로 접근
-  * docker build -t aitrics-vital -f Dockerfile . 실행
-  * docker run -d -p 8080:8080 --name aitrics-vital aitrics-vital 실행
+  * docker build -t vital -f Dockerfile . 실행
+  * docker run -d -p 8080:8080 --name vital vital 실행
   * 스웨거 ui로 접근하여 실행 확인 

@@ -16,5 +16,5 @@ app:
 
 logging:
   level:
-    com.aitrics.vital: INFO
+    com.vital: INFO
     root: WARN
