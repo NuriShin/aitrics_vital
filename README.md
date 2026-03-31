@@ -9,54 +9,6 @@
 #### H2 database scheme 
 * 어플리케이션 실행 시 scheme.sql 내용으로 스키마 구성 및 테스트 데이터 입력 
 
-#### 패키지 레이아웃 
-* layered 구조
-com.vital
-├─ VitalApplication.java
-├─ api
-│  ├─ controller
-│  │  ├─ PatientController.java 
-│  │  ├─ VitalController.java
-│  │  └─ InferenceController.java
-│  ├─ dto
-│  │  ├─ request
-│  │  │  ├─ PatientCreateRequest.java
-│  │  │  ├─ PatientUpdateRequest.java
-│  │  │  ├─ VitalCreateRequest.java
-│  │  │  ├─ VitalUpdateRequest.java
-│  │  │  └─ InferenceRequest.java
-│  │  └─ response
-│  │     ├─ PatientResponse.java
-│  │     ├─ VitalResponse.java
-│  │     └─ InferenceResponse.java
-│  └─ error
-│     ├─ ApiExceptionHandler.java
-│     ├─ ErrorResponse.java
-│     └─ ErrorCode.java
-├─ application
-│  └─ service
-│    ├─ PatientService.java
-│    ├─ VitalService.java
-│    └─ InferenceService.java
-├─ domain
-│  ├─ model
-│  │  ├─ Patient.java
-│  │  └─ Vital.java
-│  ├─ enumtype
-│  │  ├─ Gender.java
-│  │  └─ VitalType.java
-│  └─ exception
-│     ├─ NotFoundException.java
-│     ├─ ConflictException.java
-│     └─ UnauthorizedException.java
-├─ infra
-│  ├─ repository
-│  │  ├─ PatientRepository.java
-│  │  └─ VitalRepository.java
-│  └─ security
-│     ├─ BearerTokenFilter.java
-│     └─ SecurityConfig.java
-
 ###### API 기능 
 
 ## 환자등록 API 
